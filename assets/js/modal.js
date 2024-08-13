@@ -9,12 +9,12 @@ const modalContainer = document.getElementById("modal-container");
 
 // Open Modal
 openModal.addEventListener("click", () => {
-  modalContainer.classList.add("open");
+  modalContainer.classList.add("show-modal");
 });
 
 // Close Modal
 closeModal.addEventListener("click", () => {
-  modalContainer.classList.remove("show");
+  modalContainer.classList.remove("show-modal");
 });
 
 // potential bug? js validator shows warnings on arrow functions, this was discussed with mentor previously that it doesn't understand arrow functions properly. will look to fix in a later update

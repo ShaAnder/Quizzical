@@ -157,9 +157,10 @@ li {
     center/cover;
   /* set opacity to 0 for when it's not active */
   opacity: 0;
-  /* transition effect to make it cleanly popup and remove curser effects */
-  /* transition: opacity 0.5s ease; */
-  /* pointer-events: none; */
+  /* transition to make modal fade in */
+  transition: opacity 0.3s ease;
+  /* remove cursor effects for pc, want the user to be able to retain standard cursor even when window is hidden*/
+  pointer-events: none;
 }
 
 /* now for our modal content, this will be the actual text and heading, whereas the above was the full container */
@@ -173,12 +174,29 @@ li {
   text-align: center;
 }
 
+/*styling the modal text */
+
+#modal-content h2 {
+  font-size: 3rem;
+}
+
+#modal-content p {
+  margin-top: 2rem;
+}
+
+/* styling close modal button */
+#close-modal {
+  width: 70%;
+  margin-top: 3rem;
+}
+
 /*------ UTILITY CLASSES ------*/
 
 /*hide modal when it's open will move modal container out of bounds to prevent it being clicked again*/
 
 /*show modal when it's closed - will set opacity of modal container to 1*/
-#modal-container.show {
+#modal-container.show-modal {
+  pointer-events: auto;
   opacity: 1;
 }
 
