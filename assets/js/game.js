@@ -7,7 +7,7 @@
 
 // then finally a variety of helper functions to  do various things throughout the game
 
-// VARIABLES
+//------- VARIABLES -------//
 
 // this object will store our users selections for us to act on later
 let options = {
@@ -19,11 +19,9 @@ let options = {
 // now we get a question number for game
 let questionNo = 0;
 
-// next we want to setup our gamepage variables we're going to use a combination of loop
-// and select boxes, this will allow us to get the data back from user input and feed it to the
-// options object
+// these are our objects for both populating our select fields and our api call
 
-// here are our categories
+// trivia categories
 const category_options = [
   { value: "9", label: "General Knowledge" },
   { value: "10", label: "Entertainment: Books" },
@@ -45,3 +43,29 @@ const category_options = [
   { value: "26", label: "Celebrities" },
   { value: "27", label: "Animals" },
 ];
+
+// difficulty
+export const difficulty_options = [
+  { value: "easy", label: "Easy" },
+  { value: "medium", label: "Medium" },
+  { value: "hard", label: "Hard" },
+];
+
+// number of questions
+let numberOfQuestions;
+
+// next we need variables for our game page, which we will need variables from
+
+// we also have the quiz area which we will need to get variables for
+
+// finally we want variables from our end game area to feed into our saving system
+
+// ------ MAIN LOOP ------ //
+
+// first we want to setup our gamepage variables we're going to use a combination of loop
+// and select boxes, this will allow us to get the data back from user input and feed it to the
+// options object
+
+// here are our categories
+
+// now we make a functions
