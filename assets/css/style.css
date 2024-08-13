@@ -233,3 +233,52 @@ li {
   font-size: 2rem;
   padding-bottom: 1rem;
 }
+
+/*------ MEDIA QUERIES ------*/
+
+/* this project isn't as intensive as the previous as we don't have a lot of resizing to do
+for now a few simple media queries to resize buttons / other elements for bigger screens */
+
+/* Tablets */
+@media only screen and (min-width: 481px) {
+  h1 {
+    font-size: 8rem;
+    padding-top: 1rem;
+  }
+
+  #outer-container {
+    padding: 2rem;
+  }
+
+  h2 {
+    font-size: 5rem;
+    padding-bottom: 2rem;
+  }
+
+  p {
+    font-size: 3.4rem;
+    padding-bottom: 3rem;
+  }
+
+  .btn {
+    font-size: 3rem;
+    margin: 1rem;
+  }
+
+  #modal-content {
+    padding: 3rem;
+  }
+
+  #modal-content h2 {
+    font-size: 7rem;
+  }
+
+  #close-modal {
+    width: 30rem;
+  }
+
+  li {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
