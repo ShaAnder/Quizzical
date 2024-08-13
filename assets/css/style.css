@@ -101,4 +101,20 @@ a {
 
 /*header*/
 
+header {
+  width: auto;
+  margin-bottom: 4rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+header img {
+  width: 20%;
+}
+
 /*main body elements */
