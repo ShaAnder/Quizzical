@@ -71,7 +71,7 @@ h2 {
 p {
   text-align: center;
   font-size: 2rem;
-  padding: 2rem;
+  padding: 0.5rem;
 }
 
 /*------ MORE STYLE REMOVAL ------*/
@@ -172,7 +172,7 @@ a {
   background-color: var(--color-dark);
   border-radius: 0.5rem;
   padding: 1rem;
-  margin: 1rem;
+  margin-bottom: 1rem;
   color: var(--off-white);
   text-align: center;
 }
