@@ -8,7 +8,8 @@
 // then finally a variety of helper functions to  do various things throughout the game
 
 // HTML ELEMENTS
-const parent = document.getElementById("difficulty");
+const difficulty = document.getElementById("difficulty");
+const categories = document.getElementById("categories");
 
 //------- VARIABLES -------//
 
@@ -88,11 +89,16 @@ function generateMarkup(arr, category) {
 }
 
 // now looping function to make our options work
-function createCategories(arr) {
-  for (let i = 0; i < arr.length; i++)
-    parent.appendChild(generateMarkup(arr, "category"));
+function createCategories(arr, selection) {
+  for (let i = 0; i < arr.length; i++) {
+    let newDiv = document.createElement("div");
+    newDiv.class = "option";
+    newDiv.innerHTML = generateMarkup(arr[i], "category");
+    selection.appendChild(newDiv);
+  }
 }
 
-createCategories(category_options);
+createCategories(difficulty_options, difficulty);
+createCategories(category_options, category);
 console.log(createCategories);
 // now we make a functions
