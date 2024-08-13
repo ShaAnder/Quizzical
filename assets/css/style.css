@@ -135,6 +135,105 @@ a {
   box-shadow: 0px 0px 3px var(--color-accent) inset;
 }
 
+/*----- SELECT BOX STYLES ------*/
+/* select box styling for our game, i used radio buttons and css styling to make a 
+cleaner reliable select box for the game. using this tutorial ->
+https://youtu.be/k4gzE80FKb0?si=cUdWuAJxV4ApOQuS */
+
+/* select box container */
+.select-box {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+/* targeting the options container */
+.select-box .options-container {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  max-height: 0;
+  opacity: 0;
+  width: 100%;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.selected {
+  background-color: var(--color-dark);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: var(--color-light);
+  position: relative;
+  order: 0;
+}
+
+.selected::after {
+  content: "";
+  background-color: url("../images/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+
+  transition: all 0.4s;
+}
+
+/* when we have options container open + active make changes to the after (change our arrow direction */
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+
+/* when active show our options */
+.select-box .options-container.active {
+  max-height: 400px;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+/* style the scrollbar */
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background: var(--color-dark);
+  border-radius: 0 8px 8px 0;
+}
+
+/* style the thumb */
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 0 8px 8px 0;
+}
+
+/* style each item */
+.select-box .option,
+.selected {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+/* when hovering over each item */
+.select-box.option:hover {
+  background: #00a1b9;
+}
+
+/* set our cursor */
+.select-box label {
+  cursor: pointer;
+}
+
+/* hide the radio buttons */
+.select-box .option .radio {
+  display: none;
+}
+
 /*------ MODAL STYLES ------*/
 
 /* we want the modal to popup and cover the whole screen when open then close / disappear when closed */

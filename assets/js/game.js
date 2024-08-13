@@ -8,8 +8,13 @@
 // then finally a variety of helper functions to  do various things throughout the game
 
 // HTML ELEMENTS
-const difficulty = document.getElementById("difficulty");
-const categories = document.getElementById("categories");
+
+const categories = document.getElementById("category");
+
+// elements for our option selection
+const selected = document.querySelector(".selected");
+const optionsContainer = document.querySelector(".options-container");
+let optionsList = document.querySelectorAll(".option");
 
 //------- VARIABLES -------//
 
@@ -98,7 +103,19 @@ function createCategories(arr, selection) {
   }
 }
 
-createCategories(difficulty_options, difficulty);
-createCategories(category_options, category);
-console.log(createCategories);
-// now we make a functions
+createCategories(category_options, categories);
+console.log(categories);
+
+// now that we have populated our options we want use event listeners to manipulate our selection box
+
+// first the ability to click on it to make it active
+selected.addEventListener("click", () => {
+  optionsContainer.classList.toggle("active");
+});
+
+optionsList.forEach((o) => {
+  o.addEventListener("click", () => {
+    selected.innerHTML = o.querySelector("label").innerHTML;
+    optionsContainer.classList.remove("active");
+  });
+});
