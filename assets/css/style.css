@@ -96,7 +96,7 @@ li {
 
 /*flex container for the app*/
 .flex-container {
-  background: url("../images/black-background-with-curve-shadow-effect-lines_1017-38063.jpg");
+  background: url("../images/black-background.webp") center center;
   display: flex;
   flex-direction: column;
   align-items: center;

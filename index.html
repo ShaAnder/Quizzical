@@ -56,62 +56,57 @@
   </head>
   <body class="flex-container">
     <!-- header section for our game-->
-    <header class="header">
-      <!-- title anchor that leads back to the main page when clicked-->
-
-      <a href="index.html">
-        <h1>QUIZZICAL</h1>
-      </a>
-    </header>
+    <!-- title anchor that leads back to the main page when clicked-->
+    <a class="header" href="index.html">
+      <h1>QUIZZICAL</h1>
+    </a>
     <!-- main container for our page -->
-    <main>
-      <!-- outer container for the game -->
-      <div id="outer-container">
-        <!-- game intro to prompt user along -->
-        <h2>Welcome To Quizzical!</h2>
+    <!-- outer container for the game -->
+    <div id="outer-container">
+      <!-- game intro to prompt user along -->
+      <h2>Welcome To Quizzical!</h2>
+      <p>
+        The general knowledge quiz app for testing what you know in a fun casual
+        environment!
+      </p>
+
+      <p>
+        To begin the game, press play, check highscores for the best of the best
+        and if you want to know more about quizzical click about!
+      </p>
+
+      <!-- Buttons to take user to various sections of the game-->
+      <div class="btn--group">
+        <!-- buttons to begin playing the game or viewing the high scores takes user to respective html pages-->
+        <a href="game.html" class="btn">Play</a>
+        <a href="highscores.html" id="highScores" class="btn">High Scores</a>
+        <!-- button to activate modal window, creates a popup to show the about section of the game (did not require a new page) -->
+        <button id="open-modal" class="btn">About</button>
+      </div>
+    </div>
+
+    <!-- Modal window for about section -->
+    <div id="modal-container">
+      <div id="modal-content">
+        <h2>About</h2>
+
         <p>
-          The general knowledge quiz app for testing what you know in a fun
-          casual environment!
+          Quizzical is a general knowledge quiz game where users can select from
+          a variety of options to create a customized game experience.
+        </p>
+        <p>
+          To play quizzical simply hit start, select your options and enter your
+          name! Once the game concludes you will be scored and hopefully earn a
+          place in the hall of fame!
+        </p>
+        <p>
+          This game utilizes assets made by myself as well as the OpenTriviaDB
+          api for our questions.
         </p>
 
-        <p>
-          To begin the game, press play, check highscores for the best of the
-          best and if you want to know more about quizzical click about!
-        </p>
-
-        <!-- Buttons to take user to various sections of the game-->
-        <div class="btn--group">
-          <!-- buttons to begin playing the game or viewing the high scores takes user to respective html pages-->
-          <a href="game.html" class="btn">Play</a>
-          <a href="highscores.html" id="highScores" class="btn">High Scores</a>
-          <!-- button to activate modal window, creates a popup to show the about section of the game (did not require a new page) -->
-          <button id="open-modal" class="btn">About</button>
-        </div>
+        <button id="close-modal" class="btn">Close</button>
       </div>
-
-      <!-- Modal window for about section -->
-      <div id="modal-container">
-        <div id="modal-content">
-          <h2>About</h2>
-
-          <p>
-            Quizzical is a general knowledge quiz game where users can select
-            from a variety of options to create a customized game experience.
-          </p>
-          <p>
-            To play quizzical simply hit start, select your options and enter
-            your name! Once the game concludes you will be scored and hopefully
-            earn a place in the hall of fame!
-          </p>
-          <p>
-            This game utilizes assets made by myself as well as the OpenTriviaDB
-            api for our questions.
-          </p>
-
-          <button id="close-modal" class="btn">Close</button>
-        </div>
-      </div>
-    </main>
+    </div>
     <script src="assets/js/modal.js" defer></script>
   </body>
 </html>
