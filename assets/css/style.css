@@ -3,12 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* set our html font across the app */
 html {
   font-size: 62.5%;
@@ -39,12 +33,10 @@ html {
 /*------ GENERIC STYLES ------*/
 
 body {
-  font-family: "Montserrat";
-  min-height: 100vh;
-  color: var(--color-light);
+  background: url("../images/black-background.webp") no-repeat center
+    center/cover;
   background-color: var(--color-darkest);
-  padding: 0.5rem;
-  margin-top: 2rem;
+  color: var(--color-light);
   ::-webkit-scrollbar {
     display: none;
     scroll-behavior: smooth;
@@ -79,7 +71,7 @@ h2 {
 p {
   text-align: center;
   font-size: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem;
 }
 
 /*------ MORE STYLE REMOVAL ------*/
@@ -88,19 +80,16 @@ a {
   text-decoration: none;
 }
 
-li {
-  text-decoration: none;
-}
-
 /*------ CONTAINERS ------*/
 
 /*flex container for the app*/
 .flex-container {
-  background: url("../images/black-background.webp");
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 /*outer container for our content box*/
@@ -109,11 +98,9 @@ li {
   border-radius: 1rem;
   width: 95%;
   margin: auto;
-  padding: 0.1rem;
-}
+  padding: 2rem 1rem 4rem 1rem;
 
-#outer-container #index-content {
-  opacity: 0.7;
+  text-align: center;
 }
 
 /*button grouping for all our pages buttons*/
@@ -132,14 +119,14 @@ li {
 /*btn styles for all content buttons*/
 
 .btn {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--color-darkest);
   font-weight: 500;
   text-align: center;
-  padding: 2rem;
+  padding: 0.75rem;
   background-color: var(--color-accent);
   border-radius: 1rem;
-  margin: 1rem;
+  margin: 0.3rem;
 }
 
 .btn:hover {
@@ -184,7 +171,8 @@ li {
   border: var(--color-darkest) 3px solid;
   background-color: var(--color-dark);
   border-radius: 0.5rem;
-  padding: 2rem;
+  padding: 1rem;
+  margin: 1rem;
   color: var(--off-white);
   text-align: center;
 }
@@ -235,4 +223,13 @@ header {
   justify-content: center;
 }
 
-/*main body elements */
+#high-scores {
+  list-style: none;
+  margin-bottom: 3rem;
+}
+
+li {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
