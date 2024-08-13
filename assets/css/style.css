@@ -85,6 +85,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  text-decoration: none;
+}
+
 /*------ CONTAINERS ------*/
 
 /*flex container for the app*/
@@ -96,7 +100,7 @@ a {
 }
 
 /*outer container for our content box*/
-.outer-container {
+#outer-container {
   background-color: var(--color-theme);
   opacity: 0.7;
   width: 95%;
@@ -115,14 +119,6 @@ a {
 /*score and question tracking*/
 /* implement later*/
 
-/*------ UTILITY CLASSES ------*/
-
-/*hide modal when it's open*/
-
-/*show modal when it's closed*/
-
-/*choice selection*/
-
 /*------ BTN STYLES ------*/
 
 /*btn styles for all content buttons*/
@@ -136,6 +132,57 @@ a {
   margin: 0.2rem;
   box-shadow: -1px -1px 4px var(--color-dark) inset;
 }
+
+/*------ MODAL STYLES ------*/
+
+/* we want the modal to popup and cover the whole screen when open then close / disappear when closed */
+/* the modal used here was created with the following tutorial -> https://www.youtube.com/watch?v=XH5OW46yO8I */
+/* added extra commenting as this was new territory for me, wanted to document code a bit more for future use */
+
+#modal-container {
+  /* want to set position to fixed to keep it in the same place and not pushed down */
+  position: fixed;
+  /* display to flex so we can align everything correctly in the middle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* set top and left to 0 so that it can overlay other elements on the screen (modal is supposed to cover elements) */
+  top: 0;
+  left: 0;
+  /* give it full vp space so as it doesn't show below content */
+  width: 100vw;
+  height: 100vh;
+  /* now give it a bg (50% transparent img for the effect we want) */
+  background: url("../images/modal-background.webp") no-repeat center
+    center/cover;
+  /* set opacity to 0 for when it's not active */
+  opacity: 0;
+  /* transition effect to make it cleanly popup and remove curser effects */
+  /* transition: opacity 0.5s ease; */
+  /* pointer-events: none; */
+}
+
+/* now for our modal content, this will be the actual text and heading, whereas the above was the full container */
+#modal-content {
+  width: 95%;
+  border: var(--color-darkest) 5px solid;
+  background-color: var(--color-dark);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  color: var(--off-white);
+  text-align: center;
+}
+
+/*------ UTILITY CLASSES ------*/
+
+/*hide modal when it's open will move modal container out of bounds to prevent it being clicked again*/
+
+/*show modal when it's closed - will set opacity of modal container to 1*/
+#modal-container.show {
+  opacity: 1;
+}
+
+/*choice selection*/
 
 /*------ MAIN STYLES ------*/
 
