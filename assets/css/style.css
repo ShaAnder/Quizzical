@@ -1,6 +1,7 @@
 /*------ ROOT VARIABLES ------*/
 
 @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 * {
   margin: 0;
@@ -38,10 +39,12 @@ html {
 /*------ GENERIC STYLES ------*/
 
 body {
+  font-family: "Montserrat";
   min-height: 100vh;
   color: var(--color-light);
   background-color: var(--color-darkest);
   padding: 0.5rem;
+  margin-top: -2rem;
   ::-webkit-scrollbar {
     display: none;
     scroll-behavior: smooth;
@@ -52,9 +55,8 @@ body {
 
 h1 {
   font-family: "Codystar";
-  font-size: 4rem;
-  font-weight: 550;
-  padding-top: 0.5rem;
+  font-size: 5.5rem;
+  font-weight: 700;
   letter-spacing: 0.2rem;
   color: var(--color-light);
   text-align: center;
@@ -62,11 +64,12 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-family: "Montserrat";
+  font-size: 3rem;
   margin-bottom: 1rem;
-  font-weight: 550;
+  font-weight: 600;
   padding-top: 0.5rem;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.3rem;
   color: var(--color-light);
   text-align: center;
 }
@@ -75,8 +78,8 @@ h2 {
 
 p {
   text-align: center;
-  font-size: 1.5rem;
-  padding-bottom: 0.75rem;
+  font-size: 2rem;
+  padding-bottom: 2rem;
 }
 
 /*------ MORE STYLE REMOVAL ------*/
@@ -93,6 +96,7 @@ li {
 
 /*flex container for the app*/
 .flex-container {
+  background: url("../images/black-background-with-curve-shadow-effect-lines_1017-38063.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,13 +105,14 @@ li {
 
 /*outer container for our content box*/
 #outer-container {
-  background-color: var(--color-theme);
-  opacity: 0.7;
+  background-color: var(--color-darkest);
+  border-radius: 1rem;
+  opacity: 0.8;
   width: 95%;
   margin: auto;
-  padding: 0.5rem;
-  border-radius: 1rem;
+  padding: 0.1rem;
 }
+
 /*button grouping for all our pages buttons*/
 .btn--group {
   /*to level the buttons on top of each other*/
@@ -122,15 +127,22 @@ li {
 /*------ BTN STYLES ------*/
 
 /*btn styles for all content buttons*/
+
 .btn {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-darkest);
   font-weight: 500;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   background-color: var(--color-accent);
   border-radius: 1rem;
-  margin: 0.2rem;
-  box-shadow: -1px -1px 4px var(--color-dark) inset;
+  margin: 1rem;
+}
+
+.btn:hover {
+  background-color: var(--color-darkest);
+  color: var(--color-accent);
+  box-shadow: 0px 0px 3px var(--color-accent) inset;
 }
 
 /*------ MODAL STYLES ------*/
@@ -166,9 +178,9 @@ li {
 /* now for our modal content, this will be the actual text and heading, whereas the above was the full container */
 #modal-content {
   width: 95%;
-  border: var(--color-darkest) 5px solid;
+  border: var(--color-darkest) 3px solid;
   background-color: var(--color-dark);
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   padding: 2rem;
   color: var(--off-white);
   text-align: center;
@@ -207,17 +219,17 @@ li {
 /*header*/
 
 header {
-  width: auto;
+  background-color: var(--color-darkest);
+  border-radius: 1rem;
+  opacity: 0.8;
+  width: 95%;
+  padding: 10px;
   margin-bottom: 4rem;
   display: flex;
   text-align: center;
   align-items: center;
   align-self: center;
   justify-content: center;
-}
-
-header img {
-  width: 20%;
 }
 
 /*main body elements */
