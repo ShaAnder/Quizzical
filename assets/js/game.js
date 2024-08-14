@@ -99,13 +99,12 @@ async function apiCall() {
 function parseQuestions(data, currentQ, numQuestions) {
   // get passed api results here, the number of questions comes from the user input
   let results = data.results[currentQ];
-  console.log(results);
+  console.log(results.question);
   // using jquery (credit jquery docs and stack overflow to enable / disable buttons)
   $(".quiz-answer").prop("disabled", false);
   // check if current question <= num questions if so game plays
-  if (questionNo <= numQuestions) {
+  if (currentQ <= numQuestions) {
     // game allowed to begin -> add question to the title / get correct answer var
-
     question.innerHTML = results.question;
     correctAnswer = results.correct_answer;
     // create an array of answers to select from.
