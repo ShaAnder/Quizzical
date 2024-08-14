@@ -64,7 +64,78 @@
     </header>
     <!-- main container for our page -->
     <!-- outer container for the game -->
-    <div id="outer-container"></div>
+    <div id="outer-container">
+
+      <!-- Id ideally want a select box, but for mobile friendliness and time constraints, we're going to use buttons to select the difficulty and the number of questions -->
+
+      <div id="questions-container">
+        <h2>Number Of Questions</h2>
+        <div class="buttons">
+          <span>
+            <button
+              class="btn number-btn"
+              value="10"
+              onClick="apiParameters.numQuestions = 30"
+            >
+              10
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn number-btn"
+              value="20"
+              onClick="apiParameters.numQuestions = 30"
+            >
+              20
+            </button>
+          </span>
+          <span>
+            <button
+              class="btn number-btn"
+              value="30"
+              onClick="apiParameters.numQuestions = 30"
+            >
+              30
+            </button>
+          </span>
+        </div>
+      <div>
+      <div id="difficulty-container">
+        <h2>Select your difficulty</h2>
+        <div class="btn-group">
+          <button
+            class="btn difficulty"
+            id="easy"
+            onclick="apiParameters.difficulty = easy"
+          >
+            Easy
+          </button>
+          <button
+            class="btn difficulty"
+            id="medium"
+            onclick="apiParameters.difficulty = medium"
+          >
+            Medium
+          </button>
+          <button
+            class="btn difficulty"
+            id="hard"
+            onclick="apiParameters.difficulty = medium"
+          >
+            Hard
+          </button>
+        </div>
+      </div>
+      <div>
+        <div id="Name-Container">
+          <h2>Enter Your Name!</h2>
+          <form>
+            <input type="text" id="name" placeholder="Team Name">
+            <button class="btn" type="submit" id="startGame">Start Game</button>
+          </form>
+      </div>
+
+    </div>
 
     <script src="assets/js/game.js" async></script>
   </body>
