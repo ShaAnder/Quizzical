@@ -133,8 +133,25 @@
             <input type="text" id="name" placeholder="Enter Your Name">
             <button class="btn" type="submit" id="startGame">Start Game</button>
           </form>
-
-
+      </div>
+      <!-- this is our (currently hidden) question container, when the game starts the class will be
+       removed allowing us to play the game-->
+      <div id="game-container" class="hidden">
+        <h2 id="question"></h2>
+        <!-- these are our question buttons, we're going to populate the api data into them-->
+        <div class="answer-btns btn-group">
+          <button class="btn quiz-answer-text" id="ans1"></button>
+          <button class="btn quiz-answer-text" id="ans2"></button>
+          <button class="btn quiz-answer-text" id="ans3"></button>
+          <button class="btn quiz-answer-text" id="ans4"></button>
+        </div>
+        <hr>
+        <!-- These are our game counters, keeping track of the total score and question count -->
+        <div id="counters-container">
+          <p class="answer-counter">QUESTION:: <span id="ans-no">1</span></p>
+          <p class="score-counter">SCORE: <span id="score">0</span></p>
+        </div>
+      </div>
     </div>
 
     <script src="assets/js/game.js" async></script>
