@@ -69,10 +69,10 @@
       <div id="selection-container">
         <div id="questions-container">
           <h2>Number Of Questions</h2>
-          <div class="buttons">
+          <div class="">
             <span>
               <button
-                class="btn questionNum"
+                class="btn num-question-btns questionNum"
                 id="10"
                 onClick="handleQuestionNumberSelection(this.id)"
               >
@@ -81,7 +81,7 @@
             </span>
             <span>
               <button
-                class="btn questionNum"
+                class="btn num-question-btns questionNum"
                 id="20"
                 onClick="handleQuestionNumberSelection(this.id)"
               >
@@ -90,7 +90,7 @@
             </span>
             <span>
               <button
-                class="btn questionNum"
+                class="btn num-question-btns questionNum"
                 id="30"
                 onClick="handleQuestionNumberSelection(this.id)"
               >
@@ -102,21 +102,21 @@
             <h2>Select your difficulty</h2>
             <div class="btn-group">
               <button
-                class="btn difficulty"
+                class="btn num-difficulty-btns difficulty"
                 id="easy"
                 onclick="handleDifficultySelection(this.id)"
               >
                 Easy
               </button>
               <button
-                class="btn difficulty"
+                class="btn num-difficulty-btns difficulty"
                 id="medium"
                 onclick="handleDifficultySelection(this.id)"
               >
                 Medium
               </button>
               <button
-                class="btn difficulty"
+                class="btn num-difficulty-btns difficulty"
                 id="hard"
                 onclick="handleDifficultySelection(this.id)"
               >
@@ -146,7 +146,7 @@
       <div id="game-container" class="hidden">
         <h2 id="question"></h2>
         <!-- these are our question buttons, we're going to populate the api data into them-->
-        <div class="answer-btns btn-group">
+        <div class="answer-btns btn--group">
           <button class="btn quiz-answer" id="ans1"></button>
           <button class="btn quiz-answer" id="ans2"></button>
           <button class="btn quiz-answer" id="ans3"></button>

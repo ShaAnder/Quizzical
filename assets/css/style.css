@@ -360,10 +360,29 @@ input {
   color: var(--color-darkest);
   padding: 0.4rem;
   margin-bottom: 1rem;
-  margin-left: 2.5%;
-  width: 95%;
+  margin-left: 5%;
+  width: 90%;
   border-radius: 1rem;
   text-align: center;
+}
+
+form .btn {
+  margin-left: 5%;
+  width: 90%;
+}
+
+.num-question-btns,
+.num-difficulty-btns {
+  padding: 1rem;
+  margin: 1rem;
+  width: 25%;
+}
+
+/* styles for question and score count - want them side by side */
+#counters-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 /*------ MEDIA QUERIES ------*/
