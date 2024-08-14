@@ -65,74 +65,81 @@
     <!-- main container for our page -->
     <!-- outer container for the game -->
     <div id="outer-container">
-
       <!-- Id ideally want a select box, but for mobile friendliness and time constraints, we're going to use buttons to select the difficulty and the number of questions -->
+      <div id="selection-container">
+        <div id="questions-container">
+          <h2>Number Of Questions</h2>
+          <div class="buttons">
+            <span>
+              <button
+                class="btn questionNum"
+                id="10"
+                onClick="handleQuestionNumberSelection(this.id)"
+              >
+                10
+              </button>
+            </span>
+            <span>
+              <button
+                class="btn questionNum"
+                id="20"
+                onClick="handleQuestionNumberSelection(this.id)"
+              >
+                20
+              </button>
+            </span>
+            <span>
+              <button
+                class="btn questionNum"
+                id="30"
+                onClick="handleQuestionNumberSelection(this.id)"
+              >
+                30
+              </button>
+            </span>
+          </div>
+          <div id="difficulty-container">
+            <h2>Select your difficulty</h2>
+            <div class="btn-group">
+              <button
+                class="btn difficulty"
+                id="easy"
+                onclick="handleDifficultySelection(this.id)"
+              >
+                Easy
+              </button>
+              <button
+                class="btn difficulty"
+                id="medium"
+                onclick="handleDifficultySelection(this.id)"
+              >
+                Medium
+              </button>
+              <button
+                class="btn difficulty"
+                id="hard"
+                onclick="handleDifficultySelection(this.id)"
+              >
+                Hard
+              </button>
+            </div>
+          </div>
 
-      <div id="questions-container">
-        <h2>Number Of Questions</h2>
-        <div class="buttons">
-          <span>
-            <button
-              class="btn questionNum"
-              id="10"
-              onClick="handleQuestionNumberSelection(this.id)"
-            >
-              10
-            </button>
-          </span>
-          <span>
-            <button
-              class="btn questionNum"
-              id="20"
-              onClick="handleQuestionNumberSelection(this.id)"
-            >
-              20
-            </button>
-          </span>
-          <span>
-            <button
-              class="btn questionNum"
-              id="30"
-              onClick="handleQuestionNumberSelection(this.id)"
-            >
-              30
-            </button>
-          </span>
+          <div id="name-container">
+            <form action="" id="nameSubmitForm">
+              <h2>Enter Your Name!</h2>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter Your Name"
+                autocomplete="name"
+              />
+              <button class="btn" type="submit" id="startGameBtn">
+                Start Game
+              </button>
+            </form>
+          </div>
         </div>
-      <div>
-      <div id="difficulty-container">
-        <h2>Select your difficulty</h2>
-        <div class="btn-group">
-          <button
-            class="btn difficulty"
-            id="easy"
-            onclick="handleDifficultySelection(this.id)"
-          >
-            Easy
-          </button>
-          <button
-            class="btn difficulty"
-            id="medium"
-            onclick="handleDifficultySelection(this.id)"
-          >
-            Medium
-          </button>
-          <button
-            class="btn difficulty"
-            id="hard"
-            onclick="handleDifficultySelection(this.id)"
-          >
-            Hard
-          </button>
-        </div>
-      </div>
-      <div id="name-container">
-
-        <form action="" id="nameSubmitForm">
-          <h2>Enter Your Name!</h2>
-            <input type="text" id="name" placeholder="Enter Your Name">
-            <button class="btn" type="submit" id="startGame">Start Game</button>
-          </form>
       </div>
       <!-- this is our (currently hidden) question container, when the game starts the class will be
        removed allowing us to play the game-->
@@ -145,10 +152,10 @@
           <button class="btn quiz-answer-text" id="ans3"></button>
           <button class="btn quiz-answer-text" id="ans4"></button>
         </div>
-        <hr>
+        <hr />
         <!-- These are our game counters, keeping track of the total score and question count -->
         <div id="counters-container">
-          <p class="answer-counter">QUESTION:: <span id="ans-no">1</span></p>
+          <p class="answer-counter">QUESTION: <span id="ans-no">1</span></p>
           <p class="score-counter">SCORE: <span id="score">0</span></p>
         </div>
       </div>

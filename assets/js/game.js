@@ -33,6 +33,7 @@ let gameOn = true;
 // --- QUIZ VARS --- //
 
 // we will be utilizing button elements to get our quiz up and running
+const gameStart = document.getElementById(startGameBtn);
 
 // --- GAME END VARS --- //
 
@@ -47,10 +48,12 @@ let submittedName = document.getElementById("name");
 // want a different number of questions
 function handleDifficultySelection(e) {
   selectedDifficulty = e;
+  console.log(selectedDifficulty);
 }
 
 function handleQuestionNumberSelection(e) {
   numQuestions = e;
+  console.log(numQuestions);
 }
 
 ///-------- GAMELOOP --------///
@@ -65,28 +68,37 @@ function handleGameState() {
 
 function fetchAPIData(selectedDifficulty, numQuestions) {
   // api url we feed our obj data into this to create a custom url every game call
-  let apiData = `https://opentdb.com/api.php?amount=${numQuestions}&difficulty=${selectedDifficulty}&type=multiple`;
+  let apiString = `https://opentdb.com/api.php?amount=${numQuestions}&difficulty=${selectedDifficulty}&type=multiple`;
   console.log(apiData);
-  return apiData;
+  return apiString;
 }
-
-// call our api with an async function
-
-// increase our score function
 
 // function to shuffle our answers
 
 // function to decode HTML ENTTITIES
 
-// function to get our next questions
+// call our api with an async function
+
+// increase our score function
 
 // function to check our answers
+
+// function to get our next questions
 
 // function to save score and name at the end of the  game
 
 // function to retrieve our highscores
 
-// game start
-
 // when we get our data from the fields, we want to be able to press the submit button to
 // take that data and start our game
+
+// now game shall be ran when we click the start game button
+startGameBtn.addEventListener("click", function (e, data) {
+  // firstly prevent our form refresh
+  e.preventDefault();
+  // get our apidata and populate the answer buttons
+
+  // swap to gamescreen
+  handleGameState();
+  console.log(numQuestions, selectedDifficulty, submittedName.value);
+});
