@@ -80,6 +80,12 @@ a {
   text-decoration: none;
 }
 
+/*------ UTILITY CSS ------*/
+
+.hidden {
+  display: none;
+}
+
 /*------ CONTAINERS ------*/
 
 /*flex container for the app*/
@@ -342,7 +348,22 @@ li {
   margin: 1rem;
 }
 
-#name-container {
+/* form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  font-family: "Montserrat";
+  font-size: 2rem;
+  color: var(--color-darkest);
+  padding: 0.4rem;
+  margin-bottom: 1rem;
+  margin-left: 2.5%;
+  width: 95%;
+  border-radius: 1rem;
+  text-align: center;
 }
 
 /*------ MEDIA QUERIES ------*/
