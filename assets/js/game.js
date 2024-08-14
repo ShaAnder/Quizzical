@@ -69,3 +69,24 @@ function fetchAPIData(selectedDifficulty, numQuestions) {
   console.log(apiData);
   return apiData;
 }
+
+// call our api with an async function
+
+// increase our score function
+
+// function to shuffle our answers
+
+// function to decode HTML ENTTITIES
+
+// function to get our next questions
+
+// function to check our answers
+
+// function to save score and name at the end of the  game
+
+// function to retrieve our highscores
+
+// game start
+
+// when we get our data from the fields, we want to be able to press the submit button to
+// take that data and start our game
