@@ -66,18 +66,34 @@ function handleGameState() {
   document.getElementById("game-container").classList.remove("hidden");
 }
 
-function fetchAPIData(selectedDifficulty, numQuestions) {
+function fetchAPIData(d, q) {
   // api url we feed our obj data into this to create a custom url every game call
-  let apiString = `https://opentdb.com/api.php?amount=${numQuestions}&difficulty=${selectedDifficulty}&type=multiple`;
-  console.log(apiData);
+  let apiString = `https://opentdb.com/api.php?amount=${q}&difficulty=${d}&type=multiple`;
+  console.log(apiString);
   return apiString;
+}
+
+// call our api with an async function
+async function apiCall(apiData) {
+  // make our api call
+  const response = await fetch(apiData);
+  // check if we get a response code, if not go and direct to error 500 page
+  if (response.status >= 200 && response.status <= 299) {
+    console.log(response);
+    // get our data await response.json()
+    data = await response.json();
+    let results = data.results;
+    // return our questionData
+
+    return results;
+  }
+  // Handle the error go to error 500 page (learnt from w3 schools)
+  else window.location.assign("500.html");
 }
 
 // function to shuffle our answers
 
 // function to decode HTML ENTTITIES
-
-// call our api with an async function
 
 // increase our score function
 
@@ -93,12 +109,13 @@ function fetchAPIData(selectedDifficulty, numQuestions) {
 // take that data and start our game
 
 // now game shall be ran when we click the start game button
-startGameBtn.addEventListener("click", function (e, data) {
+startGameBtn.addEventListener("click", function (e) {
   // firstly prevent our form refresh
   e.preventDefault();
   // get our apidata and populate the answer buttons
-
+  let questions = apiCall(fetchAPIData(selectedDifficulty, numQuestions));
   // swap to gamescreen
   handleGameState();
   console.log(numQuestions, selectedDifficulty, submittedName.value);
+  console.log(apiCall());
 });
