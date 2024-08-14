@@ -34,6 +34,12 @@ let gameOn = true;
 
 // get the question h2 so we can populate our question
 const question = document.getElementById("question");
+// we need to get the answer buttons from the page for adding the questions to them
+const answerBtns = document.getElementsByClassName("quiz-answer");
+const ans1 = document.getElementById("ans1");
+const ans2 = document.getElementById("ans2");
+const ans3 = document.getElementById("ans3");
+const ans4 = document.getElementById("ans4");
 
 // we will be utilizing button elements to get our quiz up and running
 const gameStart = document.getElementById(startGameBtn);
@@ -112,10 +118,10 @@ function parseQuestions(data, currentQ, numQuestions) {
     const answers = [...results.incorrect_answers, correctAnswer];
     console.log(answers);
     // now we populate the answers on the question buttons
-    ans.innerHTML = `${answers[0]}`;
-    ans.innerHTML = `${answers[1]}`;
-    ans.innerHTML = `${answers[2]}`;
-    ans.innerHTML = `${answers[3]}`;
+    ans1.innerHTML = `${answers[0]}`;
+    ans2.innerHTML = `${answers[1]}`;
+    ans3.innerHTML = `${answers[2]}`;
+    ans4.innerHTML = `${answers[3]}`;
   }
 }
 
