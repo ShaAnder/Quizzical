@@ -107,8 +107,10 @@ function parseQuestions(data, currentQ, numQuestions) {
     // game allowed to begin -> add question to the title / get correct answer var
     question.innerHTML = results.question;
     correctAnswer = results.correct_answer;
+    console.log(correctAnswer);
     // create an array of answers to select from.
     const answers = [...results.incorrect_answers, correctAnswer];
+    console.log(answers);
     // now we populate the answers on the question buttons
     ans.innerHTML = `${answers[0]}`;
     ans.innerHTML = `${answers[1]}`;

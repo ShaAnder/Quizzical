@@ -36,3 +36,5 @@ $('.quiz-answer').prop('disabled', false);
 to enable and disable buttons
 
 21:41 wednesday - running into error where we can't call api properly with onclick function -> potential fix to remove the form entirely and place it outside the container
+
+22:00 wednesday -> got questions to display on screen, currently running into an issue with buttons not being displayed correctly
