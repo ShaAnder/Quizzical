@@ -333,6 +333,18 @@ li {
   padding-bottom: 1rem;
 }
 
+/* pre game start styling */
+
+#questions-container h2,
+#difficulty-container h2,
+#name-container h2 {
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+#name-container {
+}
+
 /*------ MEDIA QUERIES ------*/
 
 /* this project isn't as intensive as the previous as we don't have a lot of resizing to do

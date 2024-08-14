@@ -73,27 +73,27 @@
         <div class="buttons">
           <span>
             <button
-              class="btn number-btn"
-              value="10"
-              onClick="apiParameters.numQuestions = 30"
+              class="btn questionNum"
+              id="10"
+              onClick="handleQuestionNumberSelection(this.id)"
             >
               10
             </button>
           </span>
           <span>
             <button
-              class="btn number-btn"
-              value="20"
-              onClick="apiParameters.numQuestions = 30"
+              class="btn questionNum"
+              id="20"
+              onClick="handleQuestionNumberSelection(this.id)"
             >
               20
             </button>
           </span>
           <span>
             <button
-              class="btn number-btn"
-              value="30"
-              onClick="apiParameters.numQuestions = 30"
+              class="btn questionNum"
+              id="30"
+              onClick="handleQuestionNumberSelection(this.id)"
             >
               30
             </button>
@@ -106,34 +106,34 @@
           <button
             class="btn difficulty"
             id="easy"
-            onclick="apiParameters.difficulty = easy"
+            onclick="handleDifficultySelection(this.id)"
           >
             Easy
           </button>
           <button
             class="btn difficulty"
             id="medium"
-            onclick="apiParameters.difficulty = medium"
+            onclick="handleDifficultySelection(this.id)"
           >
             Medium
           </button>
           <button
             class="btn difficulty"
             id="hard"
-            onclick="apiParameters.difficulty = medium"
+            onclick="handleDifficultySelection(this.id)"
           >
             Hard
           </button>
         </div>
       </div>
-      <div>
-        <div id="Name-Container">
+      <div id="name-container">
+
+        <form action="" id="nameSubmitForm">
           <h2>Enter Your Name!</h2>
-          <form>
             <input type="text" id="name" placeholder="Team Name">
             <button class="btn" type="submit" id="startGame">Start Game</button>
           </form>
-      </div>
+
 
     </div>
 
