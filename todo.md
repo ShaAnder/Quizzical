@@ -24,3 +24,15 @@ Current issues
 21:06 wednesday - having issues with api data loading after our code is needed -> maybe call function to get / format questions inside api call functions?
 
 21:19 wednesday - current problem with activating buttons -> would need to create handlers to enable to disable them all individually, stack overflow recommends jquery for solving this.
+
+20:25 wednesday - found solution in jquery docs can add something like
+
+`<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>`
+
+to html and then use
+
+$('.quiz-answer').prop('disabled', false);
+
+to enable and disable buttons
+
+21:41 wednesday - running into error where we can't call api properly with onclick function -> potential fix to remove the form entirely and place it outside the container

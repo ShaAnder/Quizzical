@@ -32,6 +32,9 @@ let gameOn = true;
 
 // --- QUIZ VARS --- //
 
+// get the question h2 so we can populate our question
+const question = document.getElementById("question");
+
 // we will be utilizing button elements to get our quiz up and running
 const gameStart = document.getElementById(startGameBtn);
 
@@ -74,26 +77,45 @@ function fetchAPIData(d, q) {
 }
 
 // call our api with an async function
-async function apiCall(apiData) {
+async function apiCall() {
   // make our api call
-  const response = await fetch(apiData);
+  const response = await fetch(
+    `https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple`
+  );
   // check if we get a response code, if not go and direct to error 500 page
   if (response.status >= 200 && response.status <= 299) {
-    console.log(response);
     // get our data await response.json()
     data = await response.json();
     // call our handleGameState function in here as we ONLY need it after api call
     handleGameState();
     // parse questions
+    parseQuestions(data, qNumber, numQuestions);
   }
   // Handle the error go to error 500 page (learnt from w3 schools)
   else window.location.assign("500.html");
 }
 
 // function to get our question, we also pass in noQuestions for looping over each question
-function parseQuestions(data, noQuestions) {
-  // parse question list while hiding next question to prevent user seeing them
-  // we want to make our buttons clickable and populate our questions onto them
+function parseQuestions(data, currentQ, numQuestions) {
+  // get passed api results here, the number of questions comes from the user input
+  let results = data.results[currentQ];
+  console.log(results);
+  // using jquery (credit jquery docs and stack overflow to enable / disable buttons)
+  $(".quiz-answer").prop("disabled", false);
+  // check if current question <= num questions if so game plays
+  if (questionNo <= numQuestions) {
+    // game allowed to begin -> add question to the title / get correct answer var
+
+    question.innerHTML = results.question;
+    correctAnswer = results.correct_answer;
+    // create an array of answers to select from.
+    const answers = [...results.incorrect_answers, correctAnswer];
+    // now we populate the answers on the question buttons
+    ans.innerHTML = `${answers[0]}`;
+    ans.innerHTML = `${answers[1]}`;
+    ans.innerHTML = `${answers[2]}`;
+    ans.innerHTML = `${answers[3]}`;
+  }
 }
 
 // function to shuffle our answers
@@ -115,9 +137,6 @@ function parseQuestions(data, noQuestions) {
 
 // now game shall be ran when we click the start game button
 startGameBtn.addEventListener("click", function (e) {
-  // firstly prevent our form refresh
   e.preventDefault();
-  // get our apidata and populate the answer buttons
-  let questions = apiCall(fetchAPIData(selectedDifficulty, numQuestions));
-  console.log(numQuestions, selectedDifficulty, submittedName.value);
+  apiCall(fetchAPIData(selectedDifficulty, numQuestions));
 });
