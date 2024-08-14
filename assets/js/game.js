@@ -55,6 +55,14 @@ function handleQuestionNumberSelection(e) {
 
 ///-------- GAMELOOP --------///
 
+// firstly we want to hide our game options then show our quiz, to do this we're going to utilize
+// some css and a helper function to swap game states.
+function handleGameState() {
+  // this just removes or adds the class needed to swap game areas
+  document.getElementById("selection-container").classList.add("hidden");
+  document.getElementById("game-container").classList.remove("hidden");
+}
+
 function fetchAPIData(selectedDifficulty, numQuestions) {
   // api url we feed our obj data into this to create a custom url every game call
   let apiData = `https://opentdb.com/api.php?amount=${numQuestions}&difficulty=${selectedDifficulty}&type=multiple`;
