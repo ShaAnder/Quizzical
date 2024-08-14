@@ -82,10 +82,6 @@ async function apiCall(apiData) {
     console.log(response);
     // get our data await response.json()
     data = await response.json();
-    let results = data.results;
-    // return our questionData
-    console.log(results);
-    return results;
   }
   // Handle the error go to error 500 page (learnt from w3 schools)
   else window.location.assign("500.html");
@@ -117,5 +113,4 @@ startGameBtn.addEventListener("click", function (e) {
   // swap to gamescreen
   handleGameState();
   console.log(numQuestions, selectedDifficulty, submittedName.value);
-  console.log(questions);
 });

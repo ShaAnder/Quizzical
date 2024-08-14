@@ -18,3 +18,7 @@ NOT NEEDED BUT NICE TO HAVE
 - implement tester feedback
   - make game not be 100% of screen on desktop
   - cleaner interaction
+
+Current issues
+
+21:06 wednesday - having issues with api data loading after our code is needed -> maybe call function to get / format questions inside api call functions?
