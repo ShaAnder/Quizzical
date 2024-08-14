@@ -82,9 +82,18 @@ async function apiCall(apiData) {
     console.log(response);
     // get our data await response.json()
     data = await response.json();
+    // call our handleGameState function in here as we ONLY need it after api call
+    handleGameState();
+    // parse questions
   }
   // Handle the error go to error 500 page (learnt from w3 schools)
   else window.location.assign("500.html");
+}
+
+// function to get our question, we also pass in noQuestions for looping over each question
+function parseQuestions(data, noQuestions) {
+  // parse question list while hiding next question to prevent user seeing them
+  // we want to make our buttons clickable and populate our questions onto them
 }
 
 // function to shuffle our answers
@@ -110,7 +119,5 @@ startGameBtn.addEventListener("click", function (e) {
   e.preventDefault();
   // get our apidata and populate the answer buttons
   let questions = apiCall(fetchAPIData(selectedDifficulty, numQuestions));
-  // swap to gamescreen
-  handleGameState();
   console.log(numQuestions, selectedDifficulty, submittedName.value);
 });

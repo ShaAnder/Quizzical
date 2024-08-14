@@ -22,3 +22,5 @@ NOT NEEDED BUT NICE TO HAVE
 Current issues
 
 21:06 wednesday - having issues with api data loading after our code is needed -> maybe call function to get / format questions inside api call functions?
+
+21:19 wednesday - current problem with activating buttons -> would need to create handlers to enable to disable them all individually, stack overflow recommends jquery for solving this.
