@@ -123,3 +123,15 @@ optionsList.forEach((o) => {
     optionsContainer.classList.remove("active");
   });
 });
+
+// GAMETEST HTML //
+// <!-- building a radio checkbox select menu for the various options-->
+// <!-- tutorial can be found here: https://youtu.be/k4gzE80FKb0?si=Qfipc-77u6OdR1Ln-->
+// <!--Difficulty Buttons Container-->
+
+// <div class="container">
+//   <div class="select-box">
+//     <div id="category" class="options-container"></div>
+//     <div class="selected">Select Category</div>
+//   </div>
+// </div>
