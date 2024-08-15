@@ -277,7 +277,7 @@ header {
 }
 
 .leaderboard-item {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 /* pre game start styling */
 
@@ -379,5 +379,25 @@ for now a few simple media queries to resize buttons / other elements for bigger
   li {
     font-size: 1.5rem;
     padding-bottom: 0.5rem;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  #outer-container {
+    width: 70%;
+  }
+
+  .header {
+    width: 70%;
+  }
+
+  input {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+  form .btn {
+    width: 85%;
+    margin-left: 7.5%;
   }
 }
