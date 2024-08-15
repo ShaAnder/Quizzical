@@ -185,7 +185,7 @@ function getQuestions(data, currentQ, numQuestions) {
     for (let btn of answerBtns) {
       if (btn.innerHTML === fixEncoding(correctAnswer)) {
         // give the button an attribute
-        btn.setAttribute("data-correct", "true");
+        btn.setAttribute("data-correctAns", "true");
       }
       // while looping through the buttons, add event listener to check the answer
       btn.addEventListener("click", checkAnswer);
@@ -221,13 +221,43 @@ function checkAnswer(e) {
     // well this is wrong so add incorrect styling
     document.getElementById(selectedAns).classList.add("incorrect-btn");
     // also display the correct answer by getting the data
-    let displayCorrect = document.querySelector("[data-correct='true']");
-    displayCorrect.classList.add("correct-btn");
+    let displayCorrectData = document.querySelector("[data-correctAns='true']");
+    displayCorrectData.classList.add("correct-btn");
   }
 }
 
 // GET NEXT QUESTION FUNCTION //
-function getNextQuestion() {}
+function getNextQuestion() {
+  // FIRST -> Adjust our question counters to get game moving along
+  questionCounter += 1;
+  questionNumber.innerText = questionCounter;
+
+  // NEXT -> clean up the screen, we want to remove the correct / incorrect classes so they
+  // are not automatically displayed again, we pass in our selected answer, and then remove the classes
+  // applied to it (if they were)
+
+  // remove the correct and incorrect button classes from our selected answer
+  document
+    .getElementById(selectedAns)
+    .classList.remove("correct-btn", "incorrect-btn");
+
+  // remove the correct class from the query selector
+  let displayCorrectData = document.querySelector("[data-correctAns='true']");
+  displayCorrectData.classList.remove("correct-btn");
+
+  // FINALLY -> we need to reloop through the code, this time REMOVING the data attribute from the
+  // correct answer (credit to stack overflow on this one), it will carry over the data attribute to the
+  // next question and allow the user an easy guess otherwise (copied from original code block above)
+  for (let btn of answerBtns) {
+    if (btn.innerHTML === fixEncoding(correctAnswer)) {
+      // REMOVE THE ATTRIBUTE
+      btn.removeAttribute("data-correctAns", "true");
+    }
+  }
+  // and now we call our getQuestions again, this time it will return question two because the outside
+  // counters have been updated
+  getQuestions(data);
+}
 
 ///-------- RUN OUR GAME --------///
 
