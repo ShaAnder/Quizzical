@@ -1,23 +1,42 @@
 simple to do for the project to be considered complete
 
-MUST DO
+TO DO
 
-- complete game loop js, mainly requires building functions as listed in the game loop
+Finished getting question buttons populated and clickable
 
-- finish game highscore screen
+Next need to ->
 
-- additional styling of buttons and elements in the game
-  - highscore screen
-  - question buttons to give clarity on what's selected
-  - game screen
+Validate if questions correct or incorrect
+when option selected lock buttons
+give visual indicator of right or wrong
+adjust score appropriately
+enable next question button
 
-NOT NEEDED BUT NICE TO HAVE
+Get the next question
+increment question number
+update the question number on screen
+get next question from our data
+(Recall getquestion function?)
+-populate fields
+repeat
 
-- change title and title font -> want it to reflect the dark glossy app theme
+We also need to
 
-- implement tester feedback
-  - make game not be 100% of screen on desktop
-  - cleaner interaction
+fix html entities
+randomize the answer order
+save the high scores (local storage)?
+
+The general loop will follow ->
+
+get api call()
+hides option window
+shows game window
+gets question()
+
+Get question()
+deal with populating the question data
+fix encoding()
+randomize answers()
 
 Current issues
 
