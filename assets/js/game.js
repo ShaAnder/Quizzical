@@ -205,7 +205,7 @@ function getQuestions(data, currentQ, numQuestions) {
     qNumber++;
   } else {
     // if the question number >= the number of questions user submits, well then game over.
-    // game over screen here
+    // game over screen here we will use class hiding once again to hide the quiz, and show the final screen
   }
 }
 
