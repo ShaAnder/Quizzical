@@ -186,6 +186,17 @@ a {
   padding-bottom: 5%;
 }
 
+.btn .next-btn {
+  margin-top: 2rem;
+}
+
+.next-btn:hover {
+  color: var(--color-accent);
+  background-color: var(--color-dark);
+  border: var(--color-accent);
+  border-style: solid;
+}
+
 /*------ MODAL STYLES ------*/
 
 /* we want the modal to popup and cover the whole screen when open then close / disappear when closed */
