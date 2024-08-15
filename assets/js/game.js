@@ -95,14 +95,14 @@ async function apiCall() {
     // call our handleGameState function in here as we ONLY need it after api call
     handleGameState();
     // parse questions
-    parseQuestions(data, qNumber, numQuestions);
+    getQuestions(data, qNumber, numQuestions);
   }
   // Handle the error go to error 500 page (learnt from w3 schools)
   else window.location.assign("500.html");
 }
 
 // function to get our question, we also pass in noQuestions for looping over each question
-function parseQuestions(data, currentQ, numQuestions) {
+function getQuestions(data, currentQ, numQuestions) {
   // get passed api results here, the number of questions comes from the user input
   let results = data.results[currentQ];
   console.log(results.question);
