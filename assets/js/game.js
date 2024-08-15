@@ -36,27 +36,7 @@ const gameStart = document.getElementById(startGameBtn);
 // get selected user / team name
 let submittedName = document.getElementById("name");
 
-///-------- HANDLERS --------///
-
-// handler functions for catching the difficulty / number of questions.
-function handleDifficultySelection(e) {
-  selectedDifficulty = e;
-  console.log(selectedDifficulty);
-}
-
-function handleQuestionNumberSelection(e) {
-  numQuestions = e;
-  console.log(numQuestions);
-}
-
-// handler for swapping game state, moves classes around to show / hide screens
-function handleGameState() {
-  // this just removes or adds the class needed to swap game areas
-  document.getElementById("selection-container").classList.add("hidden");
-  document.getElementById("game-container").classList.remove("hidden");
-}
-
-///-------- GAMELOOP --------///
+///-------- FUNCTIONS --------///
 
 // ----- MAIN FUNCTIONS ----- //
 
@@ -114,6 +94,11 @@ function getQuestions(data, currentQ, numQuestions) {
     }
   }
 }
+
+// CHECK ANSWER FUNCTION //
+
+// GET NEXT QUESTION FUNCTION //
+
 // ----- HELPER FUNCTIONS ----- //
 
 // PARSE API STRING FUNCTION //
@@ -156,7 +141,7 @@ function fixEncoding(str) {
     .replace(/&lt;/gi, "<");
 }
 
-// INCREASE SCORE //
+// INCREASE SCORE FUNCTION //
 function increaseScore() {
   // create an object to hold score values
   const difficulty_calc = {
@@ -169,18 +154,32 @@ function increaseScore() {
   scoreCounter.innerText = `${score}`;
 }
 
-// function to check our answers
+// SAVE HIGHSCORE FUNCTION //
 
-// function to get our next questions
+// RETREIVE HIGHSCORES FUNCTION //
 
-// function to save score and name at the end of the  game
+// ----- HANDLER FUNCTIONS ----- //
 
-// function to retrieve our highscores
+// handler functions for catching the difficulty / number of questions.
+function handleDifficultySelection(e) {
+  selectedDifficulty = e;
+  console.log(selectedDifficulty);
+}
 
-// when we get our data from the fields, we want to be able to press the submit button to
-// take that data and start our game
+function handleQuestionNumberSelection(e) {
+  numQuestions = e;
+  console.log(numQuestions);
+}
 
-// now game shall be ran when we click the start game button
+// handler for swapping game state, moves classes around to show / hide screens
+function handleGameState() {
+  // this just removes or adds the class needed to swap game areas
+  document.getElementById("selection-container").classList.add("hidden");
+  document.getElementById("game-container").classList.remove("hidden");
+}
+
+///-------- RUN OUR GAME --------///
+
 startGameBtn.addEventListener("click", function (e) {
   e.preventDefault();
   // team name submission validation
