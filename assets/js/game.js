@@ -91,6 +91,8 @@ function getQuestions(data, currentQ, numQuestions) {
         // give the button an attribute
         btn.setAttribute("data-correct-answer", "true");
       }
+      // while looping through the buttons, add event listener to chec kk the answer
+      btn.addEventListener("click", checkAnswer);
     }
   }
 }
