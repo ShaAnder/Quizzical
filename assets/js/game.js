@@ -43,6 +43,7 @@ const gameStart = document.getElementById("start-game-btn");
 
 // get selected user / team name
 let submittedName = document.getElementById("name");
+let finalScoreName = document.getElementById("user-name");
 const finalScore = document.getElementById("final-score");
 const submitScore = document.getElementById("submit-score-btn");
 
@@ -178,7 +179,8 @@ function getQuestions(data, currentQ, numQuestions) {
 
   // NEXT -> Game begins, runs as long as current question is not larger than number of questiosn selected
 
-  if (currentQ <= numQuestions) {
+  if (currentQ < numQuestions) {
+    console.log(currentQ, numQuestions);
     // add question to the question inner html
     question.innerHTML = `Question Number ${currentQ + 1}: ${results.question}`;
     // store our correct answer
@@ -208,6 +210,12 @@ function getQuestions(data, currentQ, numQuestions) {
   } else {
     // if the question number >= the number of questions user submits, well then game over.
     // game over screen here we will use class hiding once again to hide the quiz, and show the final screen
+    document.getElementById("game-container").classList.add("hidden");
+    document.getElementById("end-container").classList.remove("hidden");
+
+    // we also want to personalize the end screen so adding their final score and name to it
+    finalScoreName.innerText = `${submittedName.value}`;
+    finalScore.innerText = `${score}`;
   }
 }
 
