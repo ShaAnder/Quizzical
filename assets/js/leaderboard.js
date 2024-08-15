@@ -1,5 +1,7 @@
-// we want to load from our local storage first and foremost if there is one,
-// so we're putting this at the top of the file
+// We have to place the leaderboard code in a separate file as with how async code works,
+// this would load before the dom elements for the leaderboard would. causing a null error.
+
+// so we only want this to load WHEN the leaderboard page is needed.
 
 // get our leaderboard scores here, if it can't find the data leaderboard is an empty arr
 const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
