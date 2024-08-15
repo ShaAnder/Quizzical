@@ -127,27 +127,23 @@ a {
 
 .btn {
   font-size: 2rem;
-  color: var(--color-accent);
+  color: var(--color-light);
   font-weight: 500;
   text-align: center;
   padding: 0.75rem;
-  background-color: var(--color-darkest);
-  border: var(--color-accent) inset;
+  background-color: var(--color-dark);
+  border: var(--color-light);
+  border-style: solid;
   border-radius: 1rem;
   margin: 0.3rem;
 }
 
 .btn:hover,
 .btn-selected {
-  border: var(--color-accent) inset;
-  color: var(--color-darkest);
-  background-color: var(--color-accent);
-}
-
-.btn-unselected {
   border: var(--color-light);
-  color: var(--color-light);
-  background-color: var(--color-darkest);
+  border-style: solid;
+  color: var(--color-dark);
+  background-color: var(--color-light);
 }
 
 /* styling for correct / incorrect choice, for user feedback */

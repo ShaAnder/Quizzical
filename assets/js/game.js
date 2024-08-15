@@ -82,13 +82,13 @@ function fixEncoding(str) {
 
 // INCREASE SCORE FUNCTION //
 function increaseScore() {
+  console.log(selectedDifficulty);
   // create an object to hold score values
   const difficulty_calc = {
     easy: 10,
     medium: 15,
     hard: 20,
   };
-  console.log();
   // score dynamically increases based on game difficulty selected
   score += Number(difficulty_calc[selectedDifficulty]);
   scoreNumber.innerHTML = score;
@@ -193,6 +193,7 @@ function checkAnswer(e) {
     // add styling to the correct button (create styles now)
     console.log("correct");
     document.getElementById(selectedAns).classList.add("correct-btn");
+
     // also increase the score
     increaseScore();
   } else {
