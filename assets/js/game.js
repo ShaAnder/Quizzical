@@ -125,6 +125,8 @@ function saveToLeaderBoard() {
   window.location.assign("leaderboard.html");
 }
 
+const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+
 // ----- HANDLER FUNCTIONS ----- //
 
 // handler functions for catching the difficulty / number of questions.

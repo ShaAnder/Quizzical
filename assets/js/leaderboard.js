@@ -7,7 +7,7 @@
 const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
 
 // we also need to get our leaderboard list to populate to it
-const leaderboardList = document.getElementById("leader-board");
+const leaderboardList = document.getElementById("leaderboard");
 console.log(leaderboardList);
 
 // we will do our leaderboard updating here as this is where the variables are at too

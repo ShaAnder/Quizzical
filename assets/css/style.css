@@ -272,7 +272,7 @@ header {
   justify-content: center;
 }
 
-#leader-board {
+#leaderboard {
   list-style: none;
   margin-bottom: 3rem;
 }
@@ -400,5 +400,9 @@ for now a few simple media queries to resize buttons / other elements for bigger
   form .btn {
     width: 85%;
     margin-left: 7.5%;
+  }
+
+  .leaderboard-item {
+    font-size: 3rem;
   }
 }
