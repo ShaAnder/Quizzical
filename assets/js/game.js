@@ -9,9 +9,13 @@ let selectedDifficulty = "";
 // question number for tracking game loop
 let qNumber = 0;
 
+// because we're constantly updating the correct answer through function calls
+// better if we have it as a global var
+let correctAnswer;
+
 // question counter / element
 let questionCounter = 1;
-let questionNumber = document.getElementById("question-number");
+let questionNumber = document.getElementById("ans-no");
 
 // score counter / element
 let score = 0;
@@ -173,7 +177,7 @@ function getQuestions(data, currentQ, numQuestions) {
     // add question to the question inner html
     question.innerHTML = `Question Number ${currentQ + 1}: ${results.question}`;
     // store our correct answer
-    let correctAnswer = results.correct_answer;
+    correctAnswer = results.correct_answer;
     console.log(correctAnswer);
     // Now that we have our answers -> RANDOMIZE THEM
     const answers = shuffleARR(results.incorrect_answers, correctAnswer);
@@ -189,13 +193,13 @@ function getQuestions(data, currentQ, numQuestions) {
     for (let btn of answerBtns) {
       if (btn.innerHTML === fixEncoding(correctAnswer)) {
         // give the button an attribute
-        btn.setAttribute("data-correctAns", "true");
+        btn.setAttribute("data-correct", "true");
       }
       // while looping through the buttons, add event listener to check the answer
       btn.addEventListener("click", checkAnswer);
     }
     // we need to incremenent and track the question number, this keeps the game loop running and allows us to kill it when game over
-    questionNumber += 1;
+    qNumber++;
   } else {
     // if the question number >= the number of questions user submits, well then game over.
     // game over screen here
@@ -225,8 +229,8 @@ function checkAnswer(e) {
     // well this is wrong so add incorrect styling
     document.getElementById(selectedAns).classList.add("incorrect-btn");
     // also display the correct answer by getting the data
-    let displayCorrectData = document.querySelector("[data-correctAns='true']");
-    displayCorrectData.classList.add("correct-btn");
+    let displayCorrectAnswer = document.querySelector("[data-correct='true']");
+    displayCorrectAnswer.classList.add("correct-btn");
   }
   // FINALLY -> Get our next question
 
@@ -239,7 +243,7 @@ function checkAnswer(e) {
 function getNextQuestion() {
   // FIRST -> Adjust our question counters to get game moving along
   questionCounter += 1;
-  questionNumber.innerText = questionCounter;
+  questionNumber.innerText = `${questionCounter}`;
 
   // NEXT -> clean up the screen, we want to remove the correct / incorrect classes so they
   // are not automatically displayed again, we pass in our selected answer, and then remove the classes
@@ -249,23 +253,20 @@ function getNextQuestion() {
   document
     .getElementById(selectedAns)
     .classList.remove("correct-btn", "incorrect-btn");
-
-  // remove the correct class from the query selector
-  let displayCorrectData = document.querySelector("[data-correctAns='true']");
-  displayCorrectData.classList.remove("correct-btn");
-
+  let displayCorrectAnswer = document.querySelector("[data-correct='true']");
+  displayCorrectAnswer.classList.remove("correct-btn");
   // FINALLY -> we need to reloop through the code, this time REMOVING the data attribute from the
   // correct answer (credit to stack overflow on this one), it will carry over the data attribute to the
   // next question and allow the user an easy guess otherwise (copied from original code block above)
   for (let btn of answerBtns) {
     if (btn.innerHTML === fixEncoding(correctAnswer)) {
       // REMOVE THE ATTRIBUTE
-      btn.removeAttribute("data-correctAns", "true");
+      btn.removeAttribute("data-correct", "true");
     }
   }
   // and now we call our getQuestions again, this time it will return question two because the outside
   // counters have been updated
-  getQuestions(data);
+  getQuestions(data, qNumber, numQuestions);
 }
 
 ///-------- RUN OUR GAME --------///
