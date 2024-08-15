@@ -164,7 +164,10 @@ async function apiCall() {
 
 // GET QUESTION FUNCTION //
 function getQuestions(data, currentQ, numQuestions) {
-  // First -> Get API results and enable the answer buttons
+  // First -> Get API results and enable / disable buttons
+
+  // disable next question button here, to hide it again
+  getNextQuestionBTN.classList.add("hidden");
 
   // get results
   let results = data.results[currentQ];
