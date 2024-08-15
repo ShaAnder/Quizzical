@@ -182,5 +182,9 @@ function increaseScore() {
 // now game shall be ran when we click the start game button
 startGameBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  apiCall(fetchAPIData(selectedDifficulty, numQuestions));
+  // team name submission validation
+  if (!submittedName.value) {
+    alert("Please Enter A TeamName");
+    return;
+  } else apiCall(fetchAPIData(selectedDifficulty, numQuestions));
 });
