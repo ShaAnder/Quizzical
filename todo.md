@@ -6,10 +6,6 @@ Finished getting question buttons populated and clickable
 
 Next need to ->
 
-Validate if questions correct or incorrect
-when option selected lock buttons
-give visual indicator of right or wrong
-adjust score appropriately
 enable next question button
 
 Get the next question
