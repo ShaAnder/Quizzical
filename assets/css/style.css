@@ -295,13 +295,14 @@ li {
 form {
   display: flex;
   flex-direction: column;
+  font-size: 3rem;
 }
 
 input {
   font-family: "Montserrat";
   font-size: 2rem;
   color: var(--color-darkest);
-  padding: 0.4rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   margin-left: 5%;
   width: 90%;
