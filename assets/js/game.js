@@ -143,7 +143,19 @@ function fixEncoding(str) {
     .replace(/&gt;/gi, ">")
     .replace(/&lt;/gi, "<");
 }
+
 // increase our score function
+function increaseScore() {
+  // create an object to hold score values
+  const difficulty_calc = {
+    easy: 10,
+    medium: 15,
+    hard: 20,
+  };
+  // score dynamically increases based on game difficulty selected
+  score += difficulty_calc[selectedDifficulty];
+  scoreCounter.innerText = `${score}`;
+}
 
 // function to check our answers
 
