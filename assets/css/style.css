@@ -127,19 +127,20 @@ a {
 
 .btn {
   font-size: 2rem;
-  color: var(--color-darkest);
+  color: var(--color-accent);
   font-weight: 500;
   text-align: center;
   padding: 0.75rem;
-  background-color: var(--color-accent);
+  background-color: var(--color-darkest);
+  border: var(--color-accent) inset;
   border-radius: 1rem;
   margin: 0.3rem;
 }
 
-.btn:hover {
-  background-color: var(--color-darkest);
-  color: var(--color-accent);
-  box-shadow: 0px 0px 3px var(--color-accent) inset;
+.btn:hover,
+.btn-selected {
+  background-color: var(--color-accent);
+  color: var(--color-darkest);
 }
 
 /* styling for correct / incorrect button choices, for user feedback */
