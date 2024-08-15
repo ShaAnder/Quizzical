@@ -114,6 +114,7 @@ a {
   border-radius: 1rem;
   width: 90%;
   margin: auto;
+  margin-top: 1rem;
   padding: 2rem 1rem 4rem 1rem;
 
   text-align: center;
@@ -125,6 +126,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-top: 1rem;
 }
 
 /*score and question tracking*/
