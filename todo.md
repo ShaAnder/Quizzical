@@ -22,8 +22,6 @@ repeat
 
 We also need to
 
-fix html entities
-randomize the answer order
 save the high scores (local storage)?
 
 The general loop will follow ->
