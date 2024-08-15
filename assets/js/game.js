@@ -190,6 +190,11 @@ function getQuestions(data, currentQ, numQuestions) {
       // while looping through the buttons, add event listener to check the answer
       btn.addEventListener("click", checkAnswer);
     }
+    // we need to incremenent and track the question number, this keeps the game loop running and allows us to kill it when game over
+    questionNumber += 1;
+  } else {
+    // if the question number >= the number of questions user submits, well then game over.
+    // game over screen here
   }
 }
 
