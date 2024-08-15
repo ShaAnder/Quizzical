@@ -127,34 +127,37 @@ a {
 
 .btn {
   font-size: 2rem;
-  color: var(--color-accent);
+  color: var(--color-light);
   font-weight: 500;
   text-align: center;
   padding: 0.75rem;
   background-color: var(--color-darkest);
-  border: var(--color-accent) inset;
+  border: var(--color-light) inset;
   border-radius: 1rem;
   margin: 0.3rem;
 }
 
 .btn:hover,
 .btn-selected {
+  border: var(--color-accent) inset;
+  color: var(--color-accent);
+}
+
+/* styling for correct choice, for user feedback */
+.correct {
+  border: var(--color-theme-accent) 0.75rem solid;
   background-color: var(--color-accent);
   color: var(--color-darkest);
 }
 
-/* styling for correct / incorrect button choices, for user feedback */
-.correct {
-  border: var(--color-theme-light) 0.75rem solid;
+.correct-btn {
+  background-color: var(--color-accent);
+  color: var(--color-darkest);
 }
 
 /* Styling for incorrect choice */
 .incorrect {
   border: var(--color-theme-dark) 0.75rem solid;
-}
-
-.correct-btn {
-  background-color: var(--color-theme);
 }
 
 .incorrect-btn {
