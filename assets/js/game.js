@@ -61,14 +61,14 @@ async function apiCall() {
 
 // GET QUESTION FUNCTION //
 function getQuestions(data, currentQ, numQuestions) {
-  // First - Get API results and enable the answer buttons
+  // First -> Get API results and enable the answer buttons
 
   // get results
   let results = data.results[currentQ];
   // using jquery to enable buttons (credit: jquery docs and stack overflow)
   $(".quiz-answer").prop("disabled", false);
 
-  // NEXT - Game begins, runs as long as current question is not larger than number of questiosn selected
+  // NEXT -> Game begins, runs as long as current question is not larger than number of questiosn selected
 
   if (currentQ <= numQuestions) {
     // add question to the question inner html
@@ -83,7 +83,7 @@ function getQuestions(data, currentQ, numQuestions) {
     ans3.innerHTML = `${answers[2]}`;
     ans4.innerHTML = `${answers[3]}`;
 
-    // NEXT - Find correct answer and give it an attribute to enable styling later
+    // NEXT -> Find correct answer and give it an attribute to enable styling later
 
     // loop through the buttons
     for (let btn of answerBtns) {
@@ -96,8 +96,28 @@ function getQuestions(data, currentQ, numQuestions) {
 }
 
 // CHECK ANSWER FUNCTION //
+function checkAnswer(e) {
+  // FIRST -> Disable buttons and get the id of the clicked button
+
+  // disable buttons using jquery
+  $(".quiz-answer").prop("disabled", true);
+  // get our targets ID for styling (do this by getting the attribute source MDN web docs)
+  selectedAns = e.target.getAttribute("id");
+
+  // NEXT -> Check our selections dataset
+
+  // if selections data set is correct (if true)
+  if (e.target.dataset.correct) {
+    // add styling to the correct button (create styles now)
+    // also increase the score
+  } else {
+    // well this is wrong so add incorrect styling
+    // also display the correct answer
+  }
+}
 
 // GET NEXT QUESTION FUNCTION //
+function getNextQuestion() {}
 
 // ----- HELPER FUNCTIONS ----- //
 
@@ -155,8 +175,6 @@ function increaseScore() {
 }
 
 // SAVE HIGHSCORE FUNCTION //
-
-// RETREIVE HIGHSCORES FUNCTION //
 
 // ----- HANDLER FUNCTIONS ----- //
 
