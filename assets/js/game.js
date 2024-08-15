@@ -113,12 +113,8 @@ function getQuestions(data, currentQ, numQuestions) {
     // game allowed to begin -> add question to the title / get correct answer var
     question.innerHTML = results.question;
     correctAnswer = results.correct_answer;
-    console.log(correctAnswer);
-    // create an array of answers to select from.
-    const answers = [...results.incorrect_answers, correctAnswer];
-    console.log(answers);
     // Now that we have our answers -> RANDOMIZE THEM
-
+    const answers = shuffleARR(results.incorrect_answers, correctAnswer);
     // now we populate the answers on the question buttons
     ans1.innerHTML = `${answers[0]}`;
     ans2.innerHTML = `${answers[1]}`;
@@ -127,9 +123,24 @@ function getQuestions(data, currentQ, numQuestions) {
   }
 }
 
-// function to shuffle our answers
+// function to shuffle our answers, takes incorrect / correct answers as argument
+function shuffleARR(a, b) {
+  // create a new arr
+  let new_arr = [];
+  // push the correct answer into incorrect arr
+  a.push(b);
+  //then push that arr into the new one
+  new_arr.push(a);
 
-// function to decode HTML ENTTITIES
+  // now create a new set, called shuffle
+  let shuffled = [...new Set(new_arr[0])]
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
+  // finally return the new shuffled arr
+  return shuffled;
+}
 
 // function that fixes encoding enttiy issues
 function fixEncoding(str) {
