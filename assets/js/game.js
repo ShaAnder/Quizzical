@@ -170,7 +170,7 @@ function getQuestions(data, currentQ, numQuestions) {
     for (let btn of answerBtns) {
       if (btn.innerHTML === fixEncoding(correctAnswer)) {
         // give the button an attribute
-        btn.setAttribute("data-correct-answer", "true");
+        btn.setAttribute("data-correct", "true");
       }
       // while looping through the buttons, add event listener to check the answer
       btn.addEventListener("click", checkAnswer);
@@ -200,8 +200,8 @@ function checkAnswer(e) {
     // well this is wrong so add incorrect styling
     document.getElementById(selectedAns).classList.add("incorrect-btn");
     // also display the correct answer by getting the data
-    let displayCorrect = document.querySelector("[data-correct-answer='true']");
-    displayCorrect.classList.add("correctbtn");
+    let displayCorrect = document.querySelector("[data-correct='true']");
+    displayCorrect.classList.add("correct-btn");
   }
 }
 
