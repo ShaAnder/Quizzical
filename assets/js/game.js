@@ -167,7 +167,7 @@ function getQuestions(data, currentQ, numQuestions) {
 
   if (currentQ <= numQuestions) {
     // add question to the question inner html
-    question.innerHTML = results.question;
+    question.innerHTML = `Question Number ${currentQ + 1}: ${results.question}`;
     // store our correct answer
     let correctAnswer = results.correct_answer;
     console.log(correctAnswer);

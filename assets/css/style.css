@@ -77,7 +77,7 @@ p {
 
 /* stying for the quiz page question */
 #question {
-  font-size: 2rem;
+  font-size: 2.5rem;
   width: 90%;
   margin-left: 5%;
   padding-bottom: 1rem;
@@ -323,9 +323,16 @@ form .btn {
 
 /* styles for question and score count - want them side by side */
 #counters-container {
-  padding: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+}
+
+#counters-container p {
+  padding-bottom: 0rem;
+  font-size: 2.5rem;
 }
 
 /*------ MEDIA QUERIES ------*/
