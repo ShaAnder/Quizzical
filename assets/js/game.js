@@ -82,7 +82,7 @@ function fetchAPIData(d, q) {
   return apiString;
 }
 
-// call our api with an async function
+// API CALL FUNCTION //
 async function apiCall() {
   // make our api call
   const response = await fetch(
@@ -101,18 +101,22 @@ async function apiCall() {
   else window.location.assign("500.html");
 }
 
-// function to get our question, we also pass in noQuestions for looping over each question
+// GET QUESTION FUNCTION //
 function getQuestions(data, currentQ, numQuestions) {
-  // get passed api results here, the number of questions comes from the user input
+  // First - Get API results and enable the answer buttons
+
+  // get results
   let results = data.results[currentQ];
-  console.log(results.question);
-  // using jquery (credit jquery docs and stack overflow to enable / disable buttons)
+  // using jquery to enable buttons (credit: jquery docs and stack overflow)
   $(".quiz-answer").prop("disabled", false);
-  // check if current question <= num questions if so game plays
+
+  // NEXT - Game begins, runs as long as current question is not larger than number of questiosn selected
+
   if (currentQ <= numQuestions) {
-    // game allowed to begin -> add question to the title / get correct answer var
+    // add question to the question inner html
     question.innerHTML = results.question;
-    correctAnswer = results.correct_answer;
+    // store our correct answer
+    let correctAnswer = results.correct_answer;
     // Now that we have our answers -> RANDOMIZE THEM
     const answers = shuffleARR(results.incorrect_answers, correctAnswer);
     // now we populate the answers on the question buttons
@@ -120,6 +124,16 @@ function getQuestions(data, currentQ, numQuestions) {
     ans2.innerHTML = `${answers[1]}`;
     ans3.innerHTML = `${answers[2]}`;
     ans4.innerHTML = `${answers[3]}`;
+
+    // NEXT - Find correct answer and give it an attribute to enable styling later
+
+    // loop through the buttons
+    for (let btn of answerBtns) {
+      if (btn.innerHTML === fixEncoding(correctAnswer)) {
+        // give the button an attribute
+        btn.setAttribute("data-correct-answer", "true");
+      }
+    }
   }
 }
 
