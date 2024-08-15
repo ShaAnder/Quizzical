@@ -20,7 +20,7 @@ html {
   /* theme colors */
   --color-accent: #ffa94d;
   --color-correct: #b9ff66;
-  --color-incorrect: #da1610;
+  --color-incorrect: #b70404;
 }
 
 /*------ CLEAN SLATE STYLES ------*/
@@ -75,6 +75,14 @@ p {
   padding: 0.5rem;
 }
 
+/* stying for the quiz page question */
+#question {
+  font-size: 2rem;
+  width: 90%;
+  margin-left: 5%;
+  padding-bottom: 1rem;
+}
+
 /*------ MORE STYLE REMOVAL ------*/
 
 a {
@@ -103,7 +111,7 @@ a {
 #outer-container {
   background-color: var(--color-darkest);
   border-radius: 1rem;
-  width: 95%;
+  width: 90%;
   margin: auto;
   padding: 2rem 1rem 4rem 1rem;
 
@@ -169,6 +177,10 @@ a {
 .incorrect-btn {
   background-color: var(--color-incorrect);
   color: var(--color-light);
+}
+
+.answer-btns {
+  padding-bottom: 5%;
 }
 
 /*------ MODAL STYLES ------*/
@@ -250,7 +262,7 @@ header {
   background-color: var(--color-darkest);
   border-radius: 1rem;
   opacity: 0.8;
-  width: 95%;
+  width: 90%;
   margin-top: 6rem;
   display: flex;
   text-align: center;
