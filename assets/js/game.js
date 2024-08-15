@@ -28,6 +28,10 @@ const ans2 = document.getElementById("ans2");
 const ans3 = document.getElementById("ans3");
 const ans4 = document.getElementById("ans4");
 
+// get our next question button to allow the user to go to the next question
+
+const getNextQuestionBTN = document.getElementById("next-question");
+
 // game start button
 const gameStart = document.getElementById(startGameBtn);
 
@@ -207,7 +211,7 @@ function checkAnswer(e) {
   // get our targets ID for styling (do this by getting the attribute source MDN web docs)
   selectedAns = e.target.getAttribute("id");
 
-  // NEXT -> Check our selections dataset
+  // NEXT -> Check our selections dataset and append correct styling
 
   // if selections data set is correct (if true)
   if (e.target.dataset.correct) {
@@ -224,6 +228,11 @@ function checkAnswer(e) {
     let displayCorrectData = document.querySelector("[data-correctAns='true']");
     displayCorrectData.classList.add("correct-btn");
   }
+  // FINALLY -> Get our next question
+
+  // unhide the button
+  getNextQuestionBTN.classList.remove("hidden");
+  getNextQuestionBTN.addEventListener("click", getNextQuestion);
 }
 
 // GET NEXT QUESTION FUNCTION //
