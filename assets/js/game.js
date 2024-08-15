@@ -1,11 +1,4 @@
-// GAME JS //
-
-// This js file is dedicated to the running of the game loop, we shall use it for all important
-// functions and functionality as we go forward.
-
 ///-------- VARIABLES --------///
-
-// Firstly we're going to need our game variables
 
 // api params
 let numQuestions = "";
@@ -16,9 +9,6 @@ let selectedDifficulty = "";
 // question number for tracking game loop
 let qNumber = 0;
 
-// next we want our counters for the questions and cscore as well as a boolean
-// to show the game is active / still ongoing
-
 // question counter / element
 let questionCounter = 1;
 let questionNumber = document.getElementById("question-number");
@@ -27,34 +17,28 @@ let questionNumber = document.getElementById("question-number");
 let scoreCounter = 0;
 let scoreNumber = document.getElementById("score");
 
-// finally our true false statement (if true game is running, if false game over) true by default
-let gameOn = true;
-
 // --- QUIZ VARS --- //
 
-// get the question h2 so we can populate our question
+// question area
 const question = document.getElementById("question");
-// we need to get the answer buttons from the page for adding the questions to them
+// answer buttons
 const answerBtns = document.getElementsByClassName("quiz-answer");
 const ans1 = document.getElementById("ans1");
 const ans2 = document.getElementById("ans2");
 const ans3 = document.getElementById("ans3");
 const ans4 = document.getElementById("ans4");
 
-// we will be utilizing button elements to get our quiz up and running
+// game start button
 const gameStart = document.getElementById(startGameBtn);
 
 // --- GAME END VARS --- //
 
-// not really at the end, but i want to catch this variable here because it will be utilized at end of quiz
+// get selected user / team name
 let submittedName = document.getElementById("name");
 
 ///-------- HANDLERS --------///
 
-// first function should be getting the data from our button presses and updating the API parameter data
-
-// doing it like this allows us to update the api url dynamically AND allows users to change their mind should they
-// want a different number of questions
+// handler functions for catching the difficulty / number of questions.
 function handleDifficultySelection(e) {
   selectedDifficulty = e;
   console.log(selectedDifficulty);
@@ -65,22 +49,16 @@ function handleQuestionNumberSelection(e) {
   console.log(numQuestions);
 }
 
-///-------- GAMELOOP --------///
-
-// firstly we want to hide our game options then show our quiz, to do this we're going to utilize
-// some css and a helper function to swap game states.
+// handler for swapping game state, moves classes around to show / hide screens
 function handleGameState() {
   // this just removes or adds the class needed to swap game areas
   document.getElementById("selection-container").classList.add("hidden");
   document.getElementById("game-container").classList.remove("hidden");
 }
 
-function fetchAPIData(d, q) {
-  // api url we feed our obj data into this to create a custom url every game call
-  let apiString = `https://opentdb.com/api.php?amount=${q}&difficulty=${d}&type=multiple`;
-  console.log(apiString);
-  return apiString;
-}
+///-------- GAMELOOP --------///
+
+// ----- MAIN FUNCTIONS ----- //
 
 // API CALL FUNCTION //
 async function apiCall() {
@@ -136,8 +114,17 @@ function getQuestions(data, currentQ, numQuestions) {
     }
   }
 }
+// ----- HELPER FUNCTIONS ----- //
 
-// function to shuffle our answers, takes incorrect / correct answers as argument
+// PARSE API STRING FUNCTION //
+function parseAPIString(d, q) {
+  // api url we feed our obj data into this to create a custom url every game call
+  let apiString = `https://opentdb.com/api.php?amount=${q}&difficulty=${d}&type=multiple`;
+  console.log(apiString);
+  return apiString;
+}
+
+// SHUFFLE ARR FUNCTION //
 function shuffleARR(a, b) {
   // create a new arr
   let new_arr = [];
@@ -156,7 +143,7 @@ function shuffleARR(a, b) {
   return shuffled;
 }
 
-// function that fixes encoding enttiy issues
+// FIX DECODING FUNCTION //
 function fixEncoding(str) {
   // create a div element, as HTML automatically fixes encoding errors
   const div = document.createElement("div");
@@ -169,7 +156,7 @@ function fixEncoding(str) {
     .replace(/&lt;/gi, "<");
 }
 
-// increase our score function
+// INCREASE SCORE //
 function increaseScore() {
   // create an object to hold score values
   const difficulty_calc = {
@@ -200,5 +187,5 @@ startGameBtn.addEventListener("click", function (e) {
   if (!submittedName.value) {
     alert("Please Enter A TeamName");
     return;
-  } else apiCall(fetchAPIData(selectedDifficulty, numQuestions));
+  } else apiCall(parseAPIString(selectedDifficulty, numQuestions));
 });
