@@ -4,6 +4,9 @@
 let numQuestions = "";
 let selectedDifficulty = "";
 
+// get our leaderboard scores here, if it can't find the data leaderboard is an empty arr
+const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+
 // --- GAME VARS --- //
 
 // question number for tracking game loop
@@ -105,7 +108,23 @@ function increaseScore() {
   scoreNumber.innerHTML = score;
 }
 
-// SAVE HIGHSCORE FUNCTION //
+// SAVE TO LEADERBOARD FUNCTIONS //
+function saveToLeaderBoard() {
+  // first we want to get a log of our user and their score, and store it in an object for local storage
+  const quizResults = {
+    name: submittedName.value,
+    score: score,
+  };
+
+  // from here we push this into a leaderboard array
+  leaderboard.push(quizResults);
+  // we then sort this array by the highest to lowest score, simple sort code
+  leaderboard.sort((a, b) => b.score - a.score);
+  // we then set the leaderboard
+  localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+  // and much like the error 500 we can then move the user to the leaderboard / highscores page
+  window.location.assign("highscores.html");
+}
 
 // ----- HANDLER FUNCTIONS ----- //
 
@@ -286,6 +305,7 @@ function getNextQuestion() {
 
 gameStart.addEventListener("click", function (e) {
   e.preventDefault();
+
   // team name submission validation
   if (!submittedName.value) {
     alert("Please Enter A Team Name");
@@ -299,3 +319,6 @@ gameStart.addEventListener("click", function (e) {
   }
   apiCall(parseAPIString(selectedDifficulty, numQuestions));
 });
+
+// add an event listener for clicking submit
+submitScore.addEventListener("click", saveToLeaderBoard);
