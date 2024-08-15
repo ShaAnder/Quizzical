@@ -1,14 +1,3 @@
-// LOCAL STORAGE LOADING //
-
-// we want to load from our local storage first and foremost if there is one,
-// so we're putting this at the top of the file
-
-// get our leaderboard scores here, if it can't find the data leaderboard is an empty arr
-const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
-
-// we also need to get our leaderboard list to populate to it
-const leaderboardList = document.getElementById("leaderBoard");
-
 ///-------- VARIABLES --------///
 
 // api params
@@ -131,13 +120,6 @@ function saveToLeaderBoard() {
   leaderboard.sort((a, b) => b.score - a.score);
   // we then set the leaderboard
   localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-
-  // now we write to the leaderboard page here
-  leaderboardList.innerHTML = leaderboard
-    .map((leaderboard) => {
-      return `<li class="highscoreitem">${leaderboard.name} - ${leaderboard.score}</li>`;
-    })
-    .join("");
 
   // and much like the error 500 we can then move the user to the leaderboard / leaderboard page
   window.location.assign("leaderboard.html");

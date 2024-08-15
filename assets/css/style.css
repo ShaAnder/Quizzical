@@ -271,17 +271,14 @@ header {
   justify-content: center;
 }
 
-#high-scores {
+#leader-board {
   list-style: none;
   margin-bottom: 3rem;
 }
 
-li {
-  text-align: center;
-  font-size: 2rem;
-  padding-bottom: 1rem;
+.leaderboard-item {
+  font-size: 4rem;
 }
-
 /* pre game start styling */
 
 #questions-container h2,
