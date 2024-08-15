@@ -27,22 +27,24 @@ let scoreNumber = document.getElementById("score");
 const question = document.getElementById("question");
 // answer buttons
 const answerBtns = document.getElementsByClassName("quiz-answer");
-const ans1 = document.getElementById("ans1");
-const ans2 = document.getElementById("ans2");
-const ans3 = document.getElementById("ans3");
-const ans4 = document.getElementById("ans4");
+const ans1 = document.getElementById("ans-1");
+const ans2 = document.getElementById("ans-2");
+const ans3 = document.getElementById("ans-3");
+const ans4 = document.getElementById("ans-4");
 
 // get our next question button to allow the user to go to the next question
 
 const getNextQuestionBTN = document.getElementById("next-question");
 
 // game start button
-const gameStart = document.getElementById(startGameBtn);
+const gameStart = document.getElementById("start-game-btn");
 
 // --- GAME END VARS --- //
 
 // get selected user / team name
 let submittedName = document.getElementById("name");
+const finalScore = document.getElementById("final-score");
+const submitScore = document.getElementById("submit-score-btn");
 
 ///-------- FUNCTIONS --------///
 
@@ -274,11 +276,11 @@ function getNextQuestion() {
 
 ///-------- RUN OUR GAME --------///
 
-startGameBtn.addEventListener("click", function (e) {
+gameStart.addEventListener("click", function (e) {
   e.preventDefault();
   // team name submission validation
   if (!submittedName.value) {
-    alert("Please Enter A TeamName");
+    alert("Please Enter A Team Name");
     return;
   } else if (!selectedDifficulty) {
     alert("Please Select A Difficulty");

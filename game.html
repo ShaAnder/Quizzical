@@ -126,7 +126,7 @@
           </div>
 
           <div id="name-container">
-            <form action="" id="nameSubmitForm">
+            <form action="">
               <h2>Enter Your Name!</h2>
               <input
                 type="text"
@@ -135,7 +135,7 @@
                 autocomplete="off"
                 required
               />
-              <button class="btn" type="submit" id="startGameBtn">
+              <button class="btn" type="submit" id="start-game-btn">
                 Start Game
               </button>
             </form>
@@ -148,10 +148,10 @@
         <h2 id="question"></h2>
         <!-- these are our question buttons, we're going to populate the api data into them-->
         <div class="answer-btns btn--group">
-          <button class="btn quiz-answer" id="ans1"></button>
-          <button class="btn quiz-answer" id="ans2"></button>
-          <button class="btn quiz-answer" id="ans3"></button>
-          <button class="btn quiz-answer" id="ans4"></button>
+          <button class="btn quiz-answer" id="ans-1"></button>
+          <button class="btn quiz-answer" id="ans-2"></button>
+          <button class="btn quiz-answer" id="ans-3"></button>
+          <button class="btn quiz-answer" id="ans-4"></button>
         </div>
         <hr />
         <!-- These are our game counters, keeping track of the total score and question count -->
@@ -169,10 +169,10 @@
       </div>
       <div id="end" class="hidden">
         <h2>Quiz Complete </h2>
-        <p>Congratulations on finishing Quizzical <span id="userName"></span>!</p>
-        <p> Your Final Score Was: <span id="final-score"></span>
+        <p>Congratulations on finishing Quizzical <span id="user-name"></span>!</p>
+        <p> Your Final Score Was: <span id="finalscore"></span>
         <form>
-          <button class="btn" type="submit" id="submitScoreBTN" disabled>Submit</button>
+          <button class="btn" type="submit" id="submit-score-btn" disabled>Submit</button>
         </form>
         <div class="btn-group">
           <a href="index.html" class="btn">Home</a>
