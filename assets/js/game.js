@@ -117,6 +117,8 @@ function getQuestions(data, currentQ, numQuestions) {
     // create an array of answers to select from.
     const answers = [...results.incorrect_answers, correctAnswer];
     console.log(answers);
+    // Now that we have our answers -> RANDOMIZE THEM
+
     // now we populate the answers on the question buttons
     ans1.innerHTML = `${answers[0]}`;
     ans2.innerHTML = `${answers[1]}`;
@@ -129,6 +131,18 @@ function getQuestions(data, currentQ, numQuestions) {
 
 // function to decode HTML ENTTITIES
 
+// function that fixes encoding enttiy issues
+function fixEncoding(str) {
+  // create a div element, as HTML automatically fixes encoding errors
+  const div = document.createElement("div");
+  // set the innerHTML of the div to the string
+  div.innerHTML = str;
+  // now return the inner HTML, we replace these chars, because even HTML won't clean these three
+  return div.innerHTML
+    .replace(/&amp;/gi, "&")
+    .replace(/&gt;/gi, ">")
+    .replace(/&lt;/gi, "<");
+}
 // increase our score function
 
 // function to check our answers
