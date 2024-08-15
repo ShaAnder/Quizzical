@@ -272,9 +272,12 @@ header {
   justify-content: center;
 }
 
+header img {
+  width: 200px;
+}
+
 #leaderboard {
   list-style: none;
-  margin-bottom: 3rem;
 }
 
 .leaderboard-item {
