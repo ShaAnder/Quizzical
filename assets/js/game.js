@@ -101,13 +101,28 @@ function increaseScore() {
 // handler functions for catching the difficulty / number of questions.
 function handleDifficultySelection(e) {
   selectedDifficulty = e;
-  // we also want to add a visual indicator for users
-  console.log(selectedDifficulty);
+  // we want to give user feedback on what button is selected
+  document
+    .querySelectorAll(".num-difficulty-btns")
+    .forEach((btClickEv, _, buttons) => {
+      btClickEv.onclick = () =>
+        buttons.forEach((bt) =>
+          bt.classList.toggle("active-element", bt === btClickEv)
+        );
+    });
 }
 
 function handleQuestionNumberSelection(e) {
   numQuestions = e;
-  console.log(numQuestions);
+  //user feedback for which button they have pressed
+  document
+    .querySelectorAll(".num-question-btns")
+    .forEach((btClickEv, _, buttons) => {
+      btClickEv.onclick = () =>
+        buttons.forEach((bt) =>
+          bt.classList.toggle("active-element", bt === btClickEv)
+        );
+    });
 }
 
 // handler for swapping game state, moves classes around to show / hide screens
@@ -121,6 +136,7 @@ function handleGameState() {
 
 // API CALL FUNCTION //
 async function apiCall() {
+  console.log(selectedDifficulty, numQuestions, submittedName);
   // make our api call
   const response = await fetch(
     `https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple`

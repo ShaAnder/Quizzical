@@ -138,9 +138,22 @@ a {
   margin: 0.3rem;
 }
 
-.btn:hover,
-.btn-selected {
+.btn:hover {
   border: var(--color-light);
+  border-style: solid;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+/* styling to let user know which button they have clicked */
+.ef-button {
+  border: var(--color-light);
+  border-style: solid;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+.active-element {
+  border: var(--color-dark);
   border-style: solid;
   color: var(--color-dark);
   background-color: var(--color-light);
