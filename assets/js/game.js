@@ -109,9 +109,12 @@ function checkAnswer(e) {
   // if selections data set is correct (if true)
   if (e.target.dataset.correct) {
     // add styling to the correct button (create styles now)
+    console.log("correct");
     // also increase the score
+    increaseScore();
   } else {
     // well this is wrong so add incorrect styling
+    console.log("incorrect");
     // also display the correct answer
   }
 }
