@@ -216,5 +216,12 @@ startGameBtn.addEventListener("click", function (e) {
   if (!submittedName.value) {
     alert("Please Enter A TeamName");
     return;
-  } else apiCall(parseAPIString(selectedDifficulty, numQuestions));
+  } else if (!selectedDifficulty) {
+    alert("Please Select A Difficulty");
+    return;
+  } else if (!numQuestions) {
+    alert("Please Select Your Number Of Questions");
+    return;
+  }
+  apiCall(parseAPIString(selectedDifficulty, numQuestions));
 });
