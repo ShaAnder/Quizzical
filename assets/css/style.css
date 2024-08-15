@@ -38,10 +38,11 @@ body {
     center/cover;
   background-color: var(--color-darkest);
   color: var(--color-light);
-  ::-webkit-scrollbar {
-    display: none;
-    scroll-behavior: smooth;
-  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
 }
 
 /*------ HEADERS ------*/
