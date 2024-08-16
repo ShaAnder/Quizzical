@@ -142,3 +142,4 @@ Currently there are four known bugs:
 - Out of all the games I and others have played, twice the abilitiey to save to leaderboard failed to trigger
 - One person noted that the game didn't show properly on their phone, using responsive settings have been unable to replicate this.
 - Favicon doesn't show on some page loads
+- Mobile Specific -> added a function that adds styling to selected buttons for user feedback, currently only works on second click of buttons, causing inaccurate user feedback
